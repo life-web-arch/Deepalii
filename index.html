@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
+</head>
+<body>
+  <div class="animated-background"></div>
+  <!-- Your content goes here -->
+  <h1 id="greeting">Greetings will appear here</h1>
+  <button id="playButton" onclick="startAudio()">
+    <img src="playbutton.png" alt="Play Icon">
+  </button>
+  <audio id="customAudio" preload="auto">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function greetByTime() {
+      var currentTime = new Date().getHours();
+      var greetingMessage;
+      var audioFileName;
+
+      if (currentTime >= 6 && currentTime < 12) {
+        greetingMessage = "Good Morning<br>Dippih<br>💝";
+        audioFileName = "goodnight.mp3";
+      } else if (currentTime >= 12 && currentTime < 18) {
+        greetingMessage = "Good afternoon<br>Dippih<br>💝";
+        audioFileName = "goodnight.mp3";
+      } else if (currentTime >= 18 && currentTime < 22) {
+        greetingMessage = "Good evening<br>Dippih<br>💝";
+        audioFileName = "goodnight.mp3";
+      } else {
+        greetingMessage = "Good night<br>Deepa<br>💝";
+        audioFileName = "goodnight.mp3";
+      }
+
+      document.getElementById("greeting").innerHTML = greetingMessage;
+      document.getElementById("customAudio").src = audioFileName;
+    }
+
+    function startAudio() {
+      var customAudio = document.getElementById("customAudio");
+      customAudio.play();
+    }
+
+    window.onload = greetByTime;
+// Hide the play button after it's tapped
+      var playButton = document.getElementById("playButton");
+     
+  </script>
+</body>
+</html>
 
